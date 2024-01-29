@@ -24,3 +24,4 @@ sqlparse
 typing_extensions
 tzdata
 virtualenv
+corsheaders
