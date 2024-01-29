@@ -5,9 +5,21 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PostModel
         fields = ['caption','body','post_image']
+        # fields = '__all__'
         
         
-class CommentSerializer(serializers.ModelSerializer):
+class PostLikeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PostLikeModel
+        fields = '__all__'
+
+class PostUnlikeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PostUnlikeModel
+        fields = '__all__'
+
+class PostCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CommentModel
-        fields = ['post','body']
+        # fields = ['post','body']
+        fields = '__all__'
