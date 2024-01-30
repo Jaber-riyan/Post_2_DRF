@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from rest_framework import viewsets
 from . import models
 from . import serializers
@@ -77,6 +77,9 @@ class UserLoginApiView(APIView):
             else:
                 return Response({'error' : "Invalid Credential"})
         return Response(serializer.errors)
+    
+    
+    
 
 class UserLogoutView(APIView):
     def get(self, request):
