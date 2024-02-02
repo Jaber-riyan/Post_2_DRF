@@ -21,9 +21,10 @@ class PostUnlikeModel(models.Model):
     unlike = models.PositiveIntegerField(default=0)
 
 class CommentModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(PostModel, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f'coomment by {self.post.caption}'
+        return f'coomment by {self.user.username} --- post {self.post.caption}'
